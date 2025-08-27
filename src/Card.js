@@ -14,9 +14,11 @@ function Card(props) {
                         <a href={props.goto}>
                             <img src={explore} alt='button' />
                         </a>
+                       
                     </div>
                 </div>
             </div>
+            <div></div>
         </>
     )
 }
