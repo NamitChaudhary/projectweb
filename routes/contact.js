@@ -24,7 +24,7 @@ router.post("/save", async (req, res) => {
         await newContact.save();
 
         // Email भेजना
-        //await sendThankYouEmail({ to: email, name, hospitalName, email, phone, message });
+        await sendThankYouEmail({ to: email, name, hospitalName, email, phone, message });
 
         res.status(201).json({ message: 'Contact form submitted and email sent successfully' });
 
