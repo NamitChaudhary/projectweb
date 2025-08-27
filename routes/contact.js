@@ -6,13 +6,13 @@ const { sendThankYouEmail } = require('../utils/emailsender');
 router.post("/save", async (req, res) => {
     const { name, hospitalName, email, phone, message } = req.body;
 
-    // Validation
+    
     if (!name || !hospitalName || !email || !phone || !message) {
         return res.status(400).json({ error: 'All fields are required' });
     }
 
     try {
-        // MongoDB में डेटा सेव करना
+        
         const newContact = new Contact({
             name,
             hospitalName,
@@ -23,7 +23,7 @@ router.post("/save", async (req, res) => {
 
         await newContact.save();
 
-        // Email भेजना
+       
         await sendThankYouEmail({ to: email, name, hospitalName, email, phone, message });
 
         res.status(201).json({ message: 'Contact form submitted and email sent successfully' });
