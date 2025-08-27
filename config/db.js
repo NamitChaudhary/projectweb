@@ -1,29 +1,17 @@
-const sql = require('mssql')
-
+const mongoose = require('mongoose');
 require('dotenv').config();
 
-const config = {
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    server: process.env.DB_SERVER,
-    database: process.env.DB_DATABASE,
-    options:{
-        encrypt:true,
-         trustServerCertificate: true,
+const connectDB = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log("MongoDB Connect");
+    } catch (err) {
+        console.error("DB Not Connected:", err.message);
+        process.exit(1);
     }
-}
+};
 
-const connectToSqlServer  = async () =>{
-    try{
-        const pool = sql.connect(config);
-        console.log('Connected to SQL Server');
-        return pool;
-    }
-    catch(err){
-        console.error('DB Connection Error:', err);
-        throw err;
-
-    }
-
-}
-module.exports = {connectToSqlServer,sql}
+module.exports = connectDB;
