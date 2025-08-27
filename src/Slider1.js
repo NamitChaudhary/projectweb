@@ -1,0 +1,116 @@
+import React from 'react'
+import first from './images/EMR1.svg'
+import second from './images/EMR2.svg'
+import Slider from 'react-slick'
+import Learn from './images/Learn_more.svg'
+
+
+function Slider1() {
+
+    const AData = [
+
+        {
+            "img": first,
+        },
+        {
+            "img": second,
+        }
+    ]
+
+    const settings = {
+
+        dots: false,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        speed: 3000,
+        autoplaySpeed: 1000,
+        cssEase: "linear",
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+
+
+
+    };
+
+
+
+
+
+    return (
+        <>
+            <div className='backcolor'>
+                <div className="container p-t-b-8">
+                    <div className='introducing-block '>
+                        <div className="row p-5 slider1 box-mob-slider">
+                            <div className="col-md-6 col-12 box-md-size">
+                                <h6 className='css6'>Introducing </h6>
+                                <h3 className='css5'>Cloud EMR</h3>
+                                <h6 className='css7'>1- Healthcare setting combining clinical patient records with labs </h6>
+                                <h6 className='css7'>2- It’s a powerful tool that supports drug allergy & interaction check.</h6>
+                                <h6 className='css7' >3- Record patient details like Chief complaints, Allergies, Capture Vitals, Medical & Family history.</h6>
+
+                                <div className='css8'>
+                                    <a href='/products'><img src={Learn} alt='images' /></a>
+
+                                </div>
+
+                            </div>
+                            <div className="col-md-6 hidden-xs">
+
+                                <Slider className='css9' {...settings}>
+                                    {
+                                        AData.map((value, index) => (
+
+                                            <img src={value.img} alt='image' key={index} height={300} width={200} />
+
+
+                                        ))
+                                    }
+                                </Slider>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </>
+    )
+}
+
+export default Slider1;
