@@ -31,7 +31,8 @@ function Client() {
                                 exposure in healthcare IT to digitalize smaller healthcare facilities
                                 like nursing homes, small, mid-sized hospitals, clinics & Labs helping
                                 them to deliver superior care, improve operational agility, and thrive
-                                in tooday s dynamic healthcare
+                                in tooday s dynamic 
+    
                                 landscape.</h6>
                             <Details />
 
